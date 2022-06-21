@@ -13,7 +13,7 @@ function getArticles() {
     
     // Dispatcher les données de chaque produit (prix, nom...) dans le DOM
     .then(function (resultatAPI) {
-      const articles = resultatAPI;
+      articles = resultatAPI;
       console.log(articles);
 
       for (let article in articles) {
@@ -24,13 +24,18 @@ function getArticles() {
         let carteProduit = document.createElement("a");
         //definition de a commen enfant de items 
         sectionCarte.appendChild(carteProduit);
+
+        var idProduit = resultatAPI[article]._id;
+        console.log(idProduit);
         //ajout du href en lien avec l'api
-        carteProduit.href = "product.html?id=${resultatAPI[article]._id}";
+        carteProduit.href = 'product.html?id=${"idProduit"}';
+        
 
         //création balise article dans a
         let articleProduit = document.createElement("article");
         //Definition de article comme enfant de a
         carteProduit.appendChild(articleProduit);
+        
 
         //création img dans article
         let imgProduit = document.createElement("img");
@@ -41,6 +46,7 @@ function getArticles() {
         //ajout du alt de l'image en lien avec .altTxt
         imgProduit.alt = resultatAPI[article].altTxt;
 
+
         //création h3 dans article
         let nomProduit = document.createElement("h3");
         //défition de h3 comme enfant de article
@@ -49,6 +55,7 @@ function getArticles() {
         nomProduit.classList.add("productName");
         //ajout de .name dans innerhtml
         nomProduit.innerHTML = resultatAPI[article].name;
+
 
         //création du p dans article
         let descriptionProduit = document.createElement("p");
