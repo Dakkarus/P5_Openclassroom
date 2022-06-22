@@ -24,11 +24,8 @@ function getArticles() {
         let carteProduit = document.createElement("a");
         //definition de a commen enfant de items 
         sectionCarte.appendChild(carteProduit);
-
-        var idProduit = resultatAPI[article]._id;
-        console.log(idProduit);
         //ajout du href en lien avec l'api
-        carteProduit.href = 'product.html?id=${"idProduit"}';
+        carteProduit.href = 'product.html?id='+resultatAPI[article]._id;
         
 
         //création balise article dans a
