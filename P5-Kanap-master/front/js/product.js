@@ -1,4 +1,5 @@
-
+let params = new URL(document.location).searchParams;
+let id = params.get("id");
 
 let imgItem = document.querySelector(".item__img");
 let title = document.getElementById("title");
@@ -14,7 +15,7 @@ function main() {
 }
 
 function getArticles(){
-    fetch("http://localhost:3000/api/products/${id}")
+    fetch("http://localhost:3000/api/products/"+id)
     .then(function (response) {
       return response.json();
     })
@@ -25,17 +26,26 @@ function getArticles(){
        
         for (let article in articles){
 
+            let imgProduit = document.createElement("img");
+            imgItem.appendChild(imgProduit);
+            imgProduit.src = articles.imageUrl;
+            imgProduit.alt = articles.altTxt;
 
+            title.innerHTML = articles.name;
 
-            title.innerHTML = article.name;
+            prixProduit.innerHTML = articles.price;
 
-            prixProduit.innerHTML = article.prix;
+            description.innerHTML = articles.description;
 
-            description.innerHTML = article.description;
-
+            let selectionCouleur = document.getElementById("colors");
+            for (let i = 0; i< resultatAPI[article].colors.length; i++){
+                let option = document.createElement("option");
+                option.innerHTML = article.colors[i];
+                selectionCouleur.appendChild(option);
+            }
             
-            
+
+
 
         }
-
 })};
