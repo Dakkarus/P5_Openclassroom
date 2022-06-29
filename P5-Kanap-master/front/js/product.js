@@ -60,14 +60,28 @@ function getArticles(){
 })};
 
 function addToCart() {
-    const AjoutPanier = document.getElementById(".addToCart");
-   
+    const AjoutPanier = document.getElementById("addToCart");
+
+    let imgProduit = document.querySelector("img");
+
+    let option = document.querySelector("option");
+
     AjoutPanier.addEventListener("click", function(event)  {
         event.preventDefault();
       if (quantitySelection.value > 0 && quantitySelection.value < 100) {
+        let liste = document.getElementById("colors");
+        let option = document.querySelector("value");
         // ------ Création du produit qui sera ajouté au panier
         let productAdded = {
+          image: imgProduit.src,
+          imageAlt: parseFloat(imgProduit.altTxt),
           name: title.innerHTML,
+
+          
+
+
+          
+          
           price: parseFloat(prixProduit.innerHTML),
           quantity: parseFloat(document.getElementById("quantity").value),
           _id: id,
@@ -85,10 +99,8 @@ function addToCart() {
         arrayProduitPanier.push(productAdded);
         localStorage.setItem("products", JSON.stringify(arrayProduitPanier));
       
-
-        let TextConfirmation = document.createElement("p")
-        ZoneBouton.appendChild(TextConfirmation);
-        TextConfirmation.innerHTML = "Vous avez ajouté ${AjoutPanier.value} Kanap à votre panier";
+      console.log (arrayProduitPanier);
+        
     } 
   });
 }
