@@ -45,9 +45,9 @@ function AffichagePanier(){
         CartDescription.appendChild(NomProduit);
         NomProduit.innerHTML = copieLS[articles].name;
 
-        let CouleurProduit = document.createElement("p");
-        CartDescription.appendChild(CouleurProduit);
-        CouleurProduit.innerHTML = copieLS[articles].couleur;
+        //let CouleurProduit = document.createElement("p");
+        //CartDescription.appendChild(CouleurProduit);
+        //CouleurProduit.innerHTML = copieLS[articles].couleur;
 
         let PrixProduit = document.createElement("p");
         CartDescription.appendChild(PrixProduit);
