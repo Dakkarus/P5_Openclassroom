@@ -39,17 +39,17 @@ function getArticles(){
             imgProduit.src = articles.imageUrl;
             imgProduit.alt = articles.altTxt;
             //Modification balise h1 avec le nom produit
-            title.innerHTML = articles.name;
+            title.textContent = articles.name;
             //Modification du span price avec prix produit
-            prixProduit.innerHTML = articles.price;
+            prixProduit.textContent = articles.price;
             //Modification du p description avec description produit 
-            description.innerHTML = articles.description;
+            description.textContent = articles.description;
             //Variable contenant largeur array colors
             let tableauCouleur = articles.colors.length;
             //Boucle de création des option de couleurs
             for (let i = 0; i< tableauCouleur; i++){
                 let option = document.createElement("option");
-                option.innerHTML = articles.colors[i];
+                option.textContent = articles.colors[i];
                 selectionCouleur.appendChild(option);
             }
             
@@ -64,25 +64,27 @@ function addToCart() {
 
     let imgProduit = document.querySelector("img");
 
+    // let getelementby tag name(img)
+    // let imgproduit = image[index img 5 ]
+
     let option = document.querySelector("option");
 
     AjoutPanier.addEventListener("click", function(event)  {
         event.preventDefault();
-      if (quantitySelection.value > 0 && quantitySelection.value < 100) {
+      if (quantitySelection.value > 0 && quantitySelection.value < 101) {
         let liste = document.getElementById("colors");
         let option = document.querySelector("value");
         // ------ Création du produit qui sera ajouté au panier
         let productAdded = {
           image: imgProduit.src,
-          imageAlt: parseFloat(imgProduit.altTxt),
-          name: title.innerHTML,
-
-          
+          imageAlt: imgProduit.alt,
+          name: title.textContent,
 
 
+
           
           
-          price: parseFloat(prixProduit.innerHTML),
+          price: parseFloat(prixProduit.textContent),
           quantity: parseFloat(document.getElementById("quantity").value),
           _id: id,
         };
