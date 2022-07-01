@@ -51,7 +51,7 @@ function getArticles() {
         //ajout de la classe
         nomProduit.classList.add("productName");
         //ajout de .name dans innerhtml
-        nomProduit.innerHTML = resultatAPI[article].name;
+        nomProduit.textContent = resultatAPI[article].name;
 
 
         //création du p dans article
@@ -61,7 +61,7 @@ function getArticles() {
         //ajout de la classe
         descriptionProduit.classList.add("productDescription");
         //ajout de .description dans le innerHtml
-        descriptionProduit.innerHTML = resultatAPI[article].description;
+        descriptionProduit.textContent = resultatAPI[article].description;
 
       }
     });
